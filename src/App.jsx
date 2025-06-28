@@ -1,14 +1,39 @@
 import logo from './assets/logo.png';
 import mb from './assets/menu_button.png';
 import image5 from './assets/image 5.png';
-import image2 from './assets/image 6.png'
+import image2 from './assets/image 6.png';
 
-const Card = ({ image , title }) => {
+function dropdownFunction() {
+   var x = document.getElementById("list");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    x.scrollIntoView({
+      behavior: "smooth", 
+      block: "start"
+    });
+  } else {
+    x.style.display = "none";
+  }
+}
+
+const Card = ({ image , title , location }) => {
     return (
-        <div className='mr-full bg-black mx-7 relative rounded-[15px] my-10'>
+        <div className='mr-full bg-black mx-7 relative rounded-[15px] my-10' onClick={dropdownFunction}>
             <img src={image} alt="gambar" className='w-[228px] h-[127px] lg:w-[452.5px] lg:h-[251.28px] -z-1 rounded-l-[15px]'/>
             <div className='w-[136px] h-[127px] lg:w-[261.87px] lg:h-[251.28px] absolute top-0 left-23 lg:left-48 bg-linear-90 from-[rgba(0, 0, 0, 0)] to-black'></div>
             <h1 className="text-white right-10 top-7 lg:top-15 absolute font-bold text-[43px] lg:text-[70px]">{title}</h1>
+
+            <div className='-top-32 bg-black w-full h-auto relative hidden scroll-smooth ' id='list'>
+              <h1 className='text-white font-bold text-[50px] absolute ml-70'>
+                All Event
+              </h1>
+              <button className='absolute bg-black mr-full ml-70 top-25 pr-[40%] border-white border-3 h-[40px] text-white pl-5 max-w-70 rounded-md'>city</button>
+              <button className='absolute bg-black mr-full ml-70 top-45 pr-[40%] border-white border-3 h-[40px] text-white pl-5 max-w-70 rounded-md'>place</button>
+              <button className='absolute bg-white mr-full ml-70 top-65 pr-[40%] border-white border-3 h-[40px] text-black pl-5 max-w-70 rounded-md'>google maps</button>
+              <button className='absolute bg-black mr-full ml-70 top-85 pr-[5%] border-white border-3 h-[40px] text-white pl-5 max-w-40 rounded-md'>enter</button>
+              <div className='w-[136px] h-full lg:w-[261.87px] lg:h-full absolute top-0 left-23 lg:left-48 bg-linear-90 from-[rgba(0, 0, 0, 0)] to-black'></div>
+              <img src={image} alt="image" className='w-[214px] h-[648px] object-cover '/>
+            </div>
         </div>
     )
 }
