@@ -10,8 +10,9 @@ import { useMediaQuery } from 'react-responsive';
 const Card = ({ image , title , location }) => {
     const [isExpanded, setIsExpanded] = useState(true);
     const imageRef = useRef(null);
-    const smallDevice = useMediaQuery({ maxWidth: 430 });
-    const mediumDevice = useMediaQuery({ minWidth: 400 });
+    const smallDevice = useMediaQuery({ maxWidth: 500 });
+    const mediumDevice = useMediaQuery({ minWidth: 600});
+    const largeDevice = useMediaQuery({ minWidth: 700 });
 
     const toggleImage = () => {
       setIsExpanded(false);
@@ -36,7 +37,8 @@ const Card = ({ image , title , location }) => {
     if (!isExpanded) {
       if (smallDevice) {rightResponsive = '30px'; 
         textResponsive = "34px";}
-       else if (mediumDevice) rightResponsive = '350px';
+       else if (mediumDevice) rightResponsive = '250px';
+       else if (largeDevice) rightResponsive = '350px';
     }
 
     return (
