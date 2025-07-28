@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Login from './login';
 import Shop from './shop';
+import Keranjang from './keranjang';
 import { useMediaQuery } from 'react-responsive';
 
 const Card = ({ image , title , location }) => {
@@ -120,6 +121,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/shop' element={<Shop />} />
+        <Route path='/keranjang' element={<Keranjang />} />
       </Routes>
     </BrowserRouter>
   )
